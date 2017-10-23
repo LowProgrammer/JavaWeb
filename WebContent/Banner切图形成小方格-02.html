@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	*{padding:0;margin:0}
+	body{font-size:14px;font-family:"微软雅黑"}
+	a{text-decoration:none;color:#fff}
+	ul li{list-style:none}
+	.wrap{width:1080px;height:350px;margin:100px auto;position:relative;overflow:hidden;border:1px solid #111}
+	#ullist{position:absolute;top:0;left:0}
+	#ullist li{width:60px;height:70px;float:left;}
+	#bannerbox li{width:1080px;height:350px;}
+  </style>
+ </head>
+ <body>
+	<!---
+	
+		外层盒子的宽度：1080 * 350  
+		
+		1:先要确定方格的宽度和宽度
+		width:60
+		height:70
+		2:一行存放多少 --
+		var rows = 1080 / width;
+		var cells = 350 / height;
+	-->
+
+
+	<div class="wrap">
+		<ul id="bannerbox">
+			<li style="background-image:url('img/bg.jpg')"></li>
+		</ul>
+		<ul id="ullist"></ul>
+	</div>
+
+	<script src="js/dom.js"></script>
+	<script>
+		
+		window.onload = function(){
+			var liw = 60;
+			var lih = 70;
+			var ulDom = dom("ullist");//document.getElementById("ullist")
+			//列数
+			var cells = Math.floor(ulDom.parentElement.offsetWidth / liw);
+			//行数
+			var rows =  Math.floor(ulDom.parentElement.offsetHeight / lih);
+			var arr = [];
+			for(var i=0;i<rows;i++){
+				for(var j=0;j<cells;j++){
+					var liDom = document.createElement("li");
+					liDom.style.backgroundImage = "url('img/bg.jpg')";
+					liDom.style.backgroundPosition = "-"+(j*liw)+"px -"+(i*lih)+"px";
+					ulDom.appendChild(liDom);
+					arr.push(liDom);
+				}
+			}
+		
+
+			//setInterval ---for可以互换的
+
+
+			var timer = setInterval(function(){
+				var index = Math.floor(Math.random() * arr.length);
+				arr[index].style.transform = "rotate(720deg) translate(-10px,10px)";
+				arr[index].style.opacity= "0";
+				arr[index].style.transition = "all 1s ease-in-out";
+				
+				//kekeAnimate(arr[index],{opacity:0});
+				arr.splice(index,1);
+				if(arr.length==0){
+					//切换图片
+					clearInterval(timer);
+				}
+			},17);
+		};
+		
+	</script>
+  
+ </body>
+</html>

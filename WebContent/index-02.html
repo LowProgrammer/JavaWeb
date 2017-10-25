@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	*{padding:0;margin:0}
+	body{font-size:14px;font-family:"微软雅黑";background:#333}
+	a{text-decoration:none;color:#fff}
+	ul li{list-style:none}
+	.wrap{width:640px;background:#111;margin:100px auto;padding:10px;overflow:hidden}
+	.wrap li{width:62px;height:62px;background:#111;border:1px solid #fff;float:left;}
+	.wrap li a{display:block;height:62px;width:62px;text-align:center;line-height:62px;}
+	.wrap li a img{width:62px;height:62px;}
+  </style>
+ </head>
+ <body>
+
+	<div class="wrap">
+		<ul id="avatarbox"></ul>
+	</div>
+	<script>
+		window.onload = function(){
+			KeAvatar.init();
+		};
+
+		var KeAvatar = {
+			size:60,
+			count:73,
+			arr:[],
+			init:function(){
+				//获取ul的对象
+				var ulDom = document.getElementById("avatarbox");
+				var i = 1;
+				var html = "";
+				//控制轮数
+				while(i<this.size){
+					//范围随机数,思考点一 0-
+					var num = this.rangeNum(1,this.count);
+					if(this.arr.indexOf(num)==-1){
+						this.arr.push(num);
+						html+="<li class='items' num="+num+"><a href='#'><img src='images/"+num+".jpg'/></a></li>";
+						i++;
+					}
+				}
+				html+="<li class='items loadmore'><a href='javascript:void(0);' onclick='KeAvatar.changePic(this)'>换一批</a></li>";
+				//追加元素
+				ulDom.innerHTML = html;
+			},
+			changePic:function(){
+				//重新初始化
+				this.arr = [];
+				this.init();
+			},
+			rangeNum:function(start,end){//范围随机数
+				return Math.floor((Math.random()*(end-start+1)+start));
+			}
+		};
+
+		
+	</script>
+ </body>
+</html>

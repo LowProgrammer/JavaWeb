@@ -33,7 +33,7 @@
 <body>
 	<!--search start-->
 	<div class="search">
-		<h1>Java开发网络爬虫实现图片响应式瀑布流系统——Jery老师</h1>
+		<h1>Java开发网络爬虫实现图片响应式瀑布流系统(豆瓣图片)</h1>
 		<div class="s_box">
 			<select class="box_select">
 	   			<option value="all">所有</option>

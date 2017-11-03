@@ -1,4 +1,4 @@
-package com.tz.spider.entity;
+package com.henu.feifei.spider.entity;
 /**
  * 
  * 图片对象实体类

@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.json.JSONUtil;
 
-import com.tz.spider.entity.Image;
-import com.tz.spider.util.SpiderUtil;
+import com.henu.feifei.spider.entity.Image;
+import com.henu.feifei.spider.util.SpiderUtil;
 
 /**
  * 

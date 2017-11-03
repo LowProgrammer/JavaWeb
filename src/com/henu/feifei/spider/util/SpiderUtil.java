@@ -1,4 +1,4 @@
-package com.tz.spider.util;
+package com.henu.feifei.spider.util;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,7 +10,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.tz.spider.entity.Image;
+import com.henu.feifei.spider.entity.Image;
 
 /**
  * 
